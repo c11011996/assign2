@@ -151,33 +151,14 @@ void draw() {
       image(end2,0,0);
       if(mouseY > 305 && mouseY < 350 && mouseX > 200 && mouseX < 434){
       image(end1,0,0);
-      }
-      if(mousePressed){
+        if(mousePressed){
         hp = 190;
-        treasureX = floor(random(600));
-        treasureY = floor(random(440));
-        image(enemy,enemyX,enemyY);
-        enemyX += 5;
-        enemyX %= 640;
-        speed ++;
-        if(speed % 128 == 0){
-        enemyY = floor(random(410)); 
-        }
-        
-    
-        //fighter
-        image(fighter,fighterX,fighterY);
-        if (upPressed) {
-          fighterY -= 5;
-          if (fighterY < 0){
-          fighterY = 0;
-          fighterX -= 5;
-          }
-        }
+        fighterX = 590;
+        fighterY = 240;
         
         gameState = GAME_RUN;
+        }
       }
-      
       break;
   }
     
