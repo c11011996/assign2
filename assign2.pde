@@ -155,7 +155,7 @@ void draw() {
       image(end1,0,0);
       }
       if(mousePressed){
-      gameState = GAME_START;
+      gameState = GAME_RUN;
       }
       
       break;
