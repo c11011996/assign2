@@ -28,26 +28,7 @@ void setup () {
   
   gameState = GAME_START;  
   
-  fighterX = 590;
-  fighterY = 240;
-  fighterW = 50;
-  fighterH = 50;
-  bgX = 0;
-  hp = 190;
-  treasureX = 0;
-  treasureY = 0;
-  treasureW = 40;
-  treasureH = 40;
-  enemyX = 0;
-  enemyY = 0;
-  enemyW = 60;
-  enemyH = 60;
-  speed = 0;
-
-    //treasure
-    
-  treasureX = floor(random(600));
-  treasureY = floor(random(440));
+  
     
 
   
@@ -65,6 +46,29 @@ void draw() {
     
       if(mouseY > 365 && mouseY < 420 && mouseX > 200 && mouseX < 408){
         image(start1,0,0);
+        
+      fighterX = 590;
+      fighterY = 240;
+      fighterW = 50;
+      fighterH = 50;
+      bgX = 0;
+      hp = 190;
+      treasureX = 0;
+      treasureY = 0;
+      treasureW = 40;
+      treasureH = 40;
+      enemyX = 0;
+      enemyY = 0;
+      enemyW = 60;
+      enemyH = 60;
+      speed = 0;
+    
+        //treasure
+        
+      treasureX = floor(random(600));
+      treasureY = floor(random(440));
+      
+      
           if(mousePressed){
           gameState = GAME_RUN;
         }
