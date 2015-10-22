@@ -28,31 +28,33 @@ void setup () {
   
   gameState = GAME_START;  
   
-  fighterX = 590;
-  fighterY = 240;
-  fighterW = 50;
-  fighterH = 50;
-  bgX = 0;
-  hp = 190;
-  treasureX = 0;
-  treasureY = 0;
-  treasureW = 40;
-  treasureH = 40;
-  enemyX = 0;
-  enemyY = 0;
-  enemyW = 60;
-  enemyH = 60;
-  speed = 0;
+ 
+    fighterX = 590;
+    fighterY = 240;
+    fighterW = 50;
+    fighterH = 50;
+    bgX = 0;
+    hp = 190;
+    treasureX = 0;
+    treasureY = 0;
+    treasureW = 40;
+    treasureH = 40;
+    enemyX = 0;
+    enemyY = 0;
+    enemyW = 60;
+    enemyH = 60;
+    speed = 0;
+  
+      //treasure
       
-  //treasure
-          
-  treasureX = floor(random(600));
-  treasureY = floor(random(440));
+    treasureX = floor(random(600));
+    treasureY = floor(random(440));
+
   
 }
 
 void draw() {
-
+  
   switch(gameState){
 //GAME START
     case GAME_START:
@@ -60,11 +62,11 @@ void draw() {
     
       if(mouseY > 365 && mouseY < 420 && mouseX > 200 && mouseX < 408){
         image(start1,0,0);
-      
           if(mousePressed){
           gameState = GAME_RUN;
         }
       }
+ 
       break;
       
 //GAME RUN
@@ -121,7 +123,7 @@ void draw() {
     }
     
 //hit detection   
-    if(fighterX >= enemyX && fighterX <= enemyX+60 && fighterY >= enemyY && fighterY <= enemyY+60){
+    if(fighterX >= enemyX && fighterX <= enemyX+enemyW && fighterY >= enemyY && fighterY <= enemyY+enemyH){
     hp-=38;
     println (hp) ;
     enemyX=0;
@@ -129,7 +131,7 @@ void draw() {
     }
 
     image(treasure,treasureX,treasureY);  
-    if(fighterX >= treasureX && fighterX <= treasureX+40 && fighterY >= treasureY && fighterY <= treasureY+40){
+    if(fighterX >= treasureX && fighterX <= treasureX+treasureW && fighterY >= treasureY && fighterY <= treasureY+treasureH){
       hp += 19;
       println(hp);
       treasureX = floor(random(600));
@@ -151,7 +153,29 @@ void draw() {
       image(end1,0,0);
       }
       if(mousePressed){
-      gameState = GAME_RUN;
+        hp = 190;
+        treasureX = floor(random(600));
+        treasureY = floor(random(440));
+        image(enemy,enemyX,enemyY);
+        enemyX += 5;
+        enemyX %= 640;
+        speed ++;
+        if(speed % 128 == 0){
+        enemyY = floor(random(410)); 
+        }
+        
+    
+        //fighter
+        image(fighter,fighterX,fighterY);
+        if (upPressed) {
+          fighterY -= 5;
+          if (fighterY < 0){
+          fighterY = 0;
+          fighterX -= 5;
+          }
+        }
+        
+        gameState = GAME_RUN;
       }
       
       break;
