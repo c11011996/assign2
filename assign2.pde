@@ -1,9 +1,9 @@
 int fighterX, fighterY, fighterW, fighterH;
 int bgX;
-int hp;
+int hp1;
 int treasureX, treasureY, treasureW, treasureH;
 int enemyX, enemyY, enemyW, enemyH;
-PImage bg1, bg2, enemy, fighter, hpImg, treasure, start1, start2, end1, end2;
+PImage bg1, bg2, enemy, fighter, hp, treasure, start1, start2, end1, end2;
 final int GAME_START = 0, GAME_RUN = 1, GAME_WIN = 2, GAME_OVER = 3;
 int gameState;
 int speed;
@@ -19,7 +19,7 @@ void setup () {
   bg2 = loadImage("img/bg2.png");
   enemy = loadImage("img/enemy.png");
   fighter = loadImage("img/fighter.png");
-  hpImg = loadImage("img/hpImg.png");
+  hp = loadImage("img/hp.png");
   treasure = loadImage("img/treasure.png");
   start1 = loadImage("img/start1.png");
   start2 = loadImage("img/start2.png");
@@ -34,7 +34,7 @@ void setup () {
     fighterW = 50;
     fighterH = 50;
     bgX = 0;
-    hp = 190;
+    hp1 = 190;
     treasureX = 0;
     treasureY = 0;
     treasureW = 40;
@@ -79,8 +79,8 @@ void draw() {
     bgX%=1280;
 
     fill(255,0,0,230);
-    rect(18,10,hp,14);    
-    image(hpImg,5,1);
+    rect(18,10,hp1,14);    
+    image(hp,5,1);
 
     
     //enemy
@@ -124,25 +124,25 @@ void draw() {
     
 //hit detection   
     if(fighterX >= enemyX && fighterX <= enemyX+enemyW && fighterY >= enemyY && fighterY <= enemyY+enemyH){
-    hp-=38;
-    println (hp) ;
+    hp1-=38;
+    println (hp1) ;
     enemyX=0;
 
     }
 
     image(treasure,treasureX,treasureY);  
     if(fighterX >= treasureX && fighterX <= treasureX+treasureW && fighterY >= treasureY && fighterY <= treasureY+treasureH){
-      hp += 19;
-      println(hp);
+      hp1 += 19;
+      println(hp1);
       treasureX = floor(random(600));
       treasureY = floor(random(440));
     }
     
-     if(hp <= 0) {
+     if(hp1 <= 0) {
        gameState=GAME_OVER;
      }
-     if(hp >= 190){
-       hp = 190;
+     if(hp1 >= 190){
+       hp1 = 190;
      }
     break;
 
@@ -152,7 +152,7 @@ void draw() {
       if(mouseY > 305 && mouseY < 350 && mouseX > 200 && mouseX < 434){
       image(end1,0,0);
         if(mousePressed){
-        hp = 190;
+        hp1 = 190;
         fighterX = 590;
         fighterY = 240;
         
