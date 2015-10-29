@@ -125,7 +125,7 @@ void draw() {
 //hit detection   
     if(fighterX >= enemyX && fighterX <= enemyX+enemyW && fighterY >= enemyY && fighterY <= enemyY+enemyH){
     hp1-=38;
-    println (hp1) ;
+    //println (hp1) ;
     enemyX=0;
 
     }
@@ -133,7 +133,7 @@ void draw() {
     image(treasure,treasureX,treasureY);  
     if(fighterX >= treasureX && fighterX <= treasureX+treasureW && fighterY >= treasureY && fighterY <= treasureY+treasureH){
       hp1 += 19;
-      println(hp1);
+    //  println(hp1);
       treasureX = floor(random(600));
       treasureY = floor(random(440));
     }
