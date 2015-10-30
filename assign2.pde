@@ -238,14 +238,12 @@ void draw() {
       fighterY -= 5;
       if (fighterY < 0){
       fighterY = 0;
-      fighterX -= 5;
       }
     }
     if (downPressed) {
       fighterY += 5;
       if (fighterY > 430){
       fighterY = 430;
-      fighterX -= 5;
       }
     }
     if (leftPressed) {
@@ -291,7 +289,7 @@ void draw() {
       if(mouseY > 305 && mouseY < 350 && mouseX > 200 && mouseX < 434){
       image(end1,0,0);
         if(mousePressed){
-        hp1 = 190;
+        hp1 = 38;
         fighterX = 590;
         fighterY = 240;
         
