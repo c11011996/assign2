@@ -34,7 +34,7 @@ void setup () {
     fighterW = 50;
     fighterH = 50;
     bgX = 0;
-    hp1 = 38;
+    hp1 = 190;
     treasureX = 0;
     treasureY = 0;
     treasureW = 40;
@@ -99,12 +99,14 @@ void draw() {
       fighterY -= 5;
       if (fighterY < 0){
       fighterY = 0;
+      fighterX -= 5;
       }
     }
     if (downPressed) {
       fighterY += 5;
       if (fighterY > 430){
       fighterY = 430;
+      fighterX -= 5;
       }
     }
     if (leftPressed) {
@@ -121,17 +123,17 @@ void draw() {
     }
     
 //hit detection   
-    if(fighterX >= enemyX && fighterX <= enemyX+enemyW && fighterY >= enemyY && fighterY <= enemyY+enemyH){
+    if(fighterX+fighterW >= enemyX && fighterX <= enemyX+enemyW && fighterY+fighterH >= enemyY && fighterY <= enemyY+enemyH){
     hp1-=38;
-    //println (hp1) ;
-    enemyX=0;
+  //  println (hp1) ;
+    enemyX =- enemyW;
 
     }
 
     image(treasure,treasureX,treasureY);  
-    if(fighterX >= treasureX && fighterX <= treasureX+treasureW && fighterY >= treasureY && fighterY <= treasureY+treasureH){
+    if(fighterX+fighterW >= treasureX && fighterX <= treasureX+treasureW && fighterY+fighterH >= treasureY && fighterY <= treasureY+treasureH){
       hp1 += 19;
-    //  println(hp1);
+ //     println(hp1);
       treasureX = floor(random(600));
       treasureY = floor(random(440));
     }
@@ -150,7 +152,7 @@ void draw() {
       if(mouseY > 305 && mouseY < 350 && mouseX > 200 && mouseX < 434){
       image(end1,0,0);
         if(mousePressed){
-        hp1 = 38;
+        hp1 = 190;
         fighterX = 590;
         fighterY = 240;
         
